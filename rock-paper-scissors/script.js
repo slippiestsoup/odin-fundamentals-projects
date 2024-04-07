@@ -7,27 +7,36 @@ function getComputerChoice() {
 function getPlayerChoice() {
     let userInput = window.prompt('Enter a choice (rock, paper, scissors):')
     return userInput
-  };
-  
+};
+
+let playerScore = 0;
+let compScore = 0;
+
 function playRound(playerSelection, computerSelection) {
     let compResult = getComputerChoice();
     let playerResult = getPlayerChoice();
     if (playerResult===compResult) {
         return 'Tie!';
     } else if (playerResult==='paper') {
-       if (compResult==='scissors')
+       if (compResult==='scissors') {
+         compScore++;
          return'You lose! Scissors beats paper!';
-       else 
+        } else 
+         playerScore++;
          return 'You win! Paper beats rock!';
     } else if (playerResult==='scissors') {
-        if (compResult==='paper')
+        if (compResult==='paper') {
+         playerScore++;
          return 'You win! Scissors beats paper!';
-        else
+        } else
+         compScore++;
          return 'You lose! Rock beats scissors!';
     } else if (playerResult==='rock') {
-        if (compResult==='scissors')
+        if (compResult==='scissors') {
+         playerScore++;
          return 'You win! Rock beats scissors!';
-        else
+        } else
+         compScore++;
         return 'You lose! Paper beats rock!';
     } 
-}
+};
