@@ -40,3 +40,17 @@ function playRound(playerSelection, computerSelection) {
         return 'You lose! Paper beats rock!';
     } 
 };
+
+function playMatch() {
+    for (let i = 0; i < 5; i++){
+        playRound();
+    }
+    console.log(playerScore);
+    console.log(compScore);
+    if (playerScore>compScore) {
+      return "You win! Congradulations!";
+    } else if (playerScore<compScore) {
+        return "The computer wins! Better luck next time!";
+    } else (playerScore===compScore) 
+        return "Tie!";
+};
