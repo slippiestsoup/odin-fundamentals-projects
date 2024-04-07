@@ -5,31 +5,29 @@ function getComputerChoice() {
 };
 
 function getPlayerChoice() {
-    const userInput = window.prompt('Enter a choice (rock, paper, scissors):')
-};
-
-let compResult = getComputerChoice();
-
-let playerResult = getPlayerChoice();
-
+    let userInput = window.prompt('Enter a choice (rock, paper, scissors):')
+    return userInput
+  };
+  
 function playRound(playerSelection, computerSelection) {
-    if (playerResult==='paper' && compResult==='scissors') {
-       return 'You lose! Scissors beats paper!';
-    } else if (playerResult==='scissors' && compResult==='rock') {
-        return 'You lose! Rock beats scissors!';
-    } else if (playerResult==='rock' && compResult==='paper') {
+    let compResult = getComputerChoice();
+    let playerResult = getPlayerChoice();
+    if (playerResult===compResult) {
+        return 'Tie!';
+    } else if (playerResult==='paper') {
+       if (compResult==='scissors')
+         return'You lose! Scissors beats paper!';
+       else 
+         return 'You win! Paper beats rock!';
+    } else if (playerResult==='scissors') {
+        if (compResult==='paper')
+         return 'You win! Scissors beats paper!';
+        else
+         return 'You lose! Rock beats scissors!';
+    } else if (playerResult==='rock') {
+        if (compResult==='scissors')
+         return 'You win! Rock beats scissors!';
+        else
         return 'You lose! Paper beats rock!';
-    } else if (playerResult==='paper' && compResult==='rock') {
-        return 'You win! Paper beats rock!';
-    } else if (playerResult==='rock' && compResult==='scissors') {
-        return 'You win! Rock beats scissors!';
-    } else if (playerResult==='scissors' && compResult==='paper') {
-        return 'You win! Scissors beats paper!';
-    } else if (playerResult==='rock' && compResult==='rock') {
-        return 'Tie!';
-    } else if (playerResult==='paper' && compResult==='paper') {
-        return 'Tie!';
-    } else if (playerResult==='scissors' && compResult==='scissors') {
-        return 'Tie!';
-    }
+    } 
 }
