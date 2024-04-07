@@ -15,12 +15,15 @@ let compScore = 0;
 function playRound(playerSelection, computerSelection) {
     let compResult = getComputerChoice();
     let playerResult = getPlayerChoice();
+    console.log(`Player: ${playerResult}, Computer: ${compResult}`);
     if (playerResult===compResult) {
+        playerScore++;
+        compScore++;
         return 'Tie!';
     } else if (playerResult==='paper') {
        if (compResult==='scissors') {
          compScore++;
-         return'You lose! Scissors beats paper!';
+         return 'You lose! Scissors beats paper!';
         } else 
          playerScore++;
          return 'You win! Paper beats rock!';
@@ -44,11 +47,10 @@ function playRound(playerSelection, computerSelection) {
 function playMatch() {
     for (let i = 0; i < 5; i++){
         playRound();
-    }
-    console.log(playerScore);
-    console.log(compScore);
+        console.log(`Player score is ${playerScore}, computer score is ${compScore}`);
+    };
     if (playerScore>compScore) {
-      return "You win! Congradulations!";
+      return "You win! Congratulations!";
     } else if (playerScore<compScore) {
         return "The computer wins! Better luck next time!";
     } else (playerScore===compScore) 
