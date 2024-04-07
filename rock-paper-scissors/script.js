@@ -1,12 +1,18 @@
+const list = ['rock', 'paper', 'scissors'];
+
 function getComputerChoice() {
-    const list = ['rock', 'paper', 'scissors'];
     const rand = list[Math.floor(Math.random() * list.length)];
     return rand
 };
 
 function getPlayerChoice() {
-    let userInput = window.prompt('Enter a choice (rock, paper, scissors):')
-    return userInput
+    let userInput = window.prompt('Enter a choice (rock, paper, scissors):');
+    if (list.includes(userInput.toLowerCase())) {
+      return userInput;
+    } else {
+      console.log('Please enter a valid option.')
+      return getPlayerChoice();
+    }
 };
 
 let playerScore = 0;
@@ -45,6 +51,8 @@ function playRound(playerSelection, computerSelection) {
 };
 
 function playMatch() {
+    playerScore = 0;
+    compScore = 0;
     for (let i = 0; i < 5; i++){
         playRound();
         console.log(`Player score is ${playerScore}, computer score is ${compScore}`);
