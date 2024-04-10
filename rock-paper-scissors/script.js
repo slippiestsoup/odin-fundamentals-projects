@@ -21,7 +21,7 @@ let compScore = 0;
 function playRound(playerSelection, compSelection) {
   let compResult = getCompChoice();
   let playerResult = getPlayerChoice();
-  console.log(`Player: ${playerResult}, comp: ${compResult}`);
+  console.log(`Player: ${playerResult}. Computer: ${compResult}.`);
   if (playerResult === compResult) {
     playerScore++;
     compScore++;
@@ -52,7 +52,7 @@ function playMatch() {
   compScore = 0;
   for (let i = 0; i < 5; i++) {
     playRound();
-    console.log(`Player score is ${playerScore}, comp score is ${compScore}`);
+    console.log(`Player score is ${playerScore}. Computer score is ${compScore}.`);
   }
   if (playerScore > compScore) {
     return "You win! Congratulations!";
