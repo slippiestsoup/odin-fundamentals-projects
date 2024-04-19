@@ -18,7 +18,7 @@ function getPlayerChoice() {
 let playerScore = 0;
 let compScore = 0;
 
-function playRound(playerSelection, compSelection) {
+function playRound() {
   let compResult = getCompChoice();
   let playerResult = getPlayerChoice();
   console.log(`Player: ${playerResult}. Computer: ${compResult}.`);
