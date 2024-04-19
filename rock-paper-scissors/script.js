@@ -26,25 +26,20 @@ function playRound(playerSelection, compSelection) {
     playerScore++;
     compScore++;
     return "Tie!";
-  } else if (playerResult === "paper") {
-    if (compResult === "scissors") {
-      compScore++;
-      return "You lose! Scissors beats paper!";
-    } else playerScore++;
-    return "You win! Paper beats rock!";
   } else if (playerResult === "scissors") {
-    if (compResult === "paper") {
-      playerScore++;
-      return "You win! Scissors beats paper!";
-    } else compScore++;
-    return "You lose! Rock beats scissors!";
+    (compResult === "paper");
+    playerScore++;
+    return "You win!";
+  } else if (playerResult === "paper") {
+    (compResult === "rock");
+    playerScore++;
+    return "You win!";
   } else if (playerResult === "rock") {
-    if (compResult === "scissors") {
-      playerScore++;
-      return "You win! Rock beats scissors!";
+    (compResult === "scissors");
+    playerScore++;
+    return "You win!";
     } else compScore++;
-    return "You lose! Paper beats rock!";
-  }
+    return "You lose!";
 }
 
 function playMatch() {
