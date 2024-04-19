@@ -26,19 +26,17 @@ function playRound() {
     playerScore++;
     compScore++;
     return "Tie!";
-  } else if (playerResult === "scissors") {
-    compResult === "paper";
+  } else if (playerResult === "scissors" && compResult === "paper") {
     playerScore++;
     return "You win!";
-  } else if (playerResult === "paper") {
-    compResult === "rock";
+  } else if (playerResult === "paper" && compResult === "rock") {
     playerScore++;
     return "You win!";
-  } else if (playerResult === "rock") {
-    compResult === "scissors";
+  } else if (playerResult === "rock" && compResult === "scissors") {
     playerScore++;
     return "You win!";
-  } else compScore++; {
+  } else {
+  compScore++;
   return "You lose!";
   }
 }
