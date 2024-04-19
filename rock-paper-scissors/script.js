@@ -38,8 +38,9 @@ function playRound() {
     compResult === "scissors";
     playerScore++;
     return "You win!";
-  } else compScore++;
+  } else compScore++; {
   return "You lose!";
+  }
 }
 
 function playMatch() {
