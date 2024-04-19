@@ -27,19 +27,19 @@ function playRound(playerSelection, compSelection) {
     compScore++;
     return "Tie!";
   } else if (playerResult === "scissors") {
-    (compResult === "paper");
+    compResult === "paper";
     playerScore++;
     return "You win!";
   } else if (playerResult === "paper") {
-    (compResult === "rock");
+    compResult === "rock";
     playerScore++;
     return "You win!";
   } else if (playerResult === "rock") {
-    (compResult === "scissors");
+    compResult === "scissors";
     playerScore++;
     return "You win!";
-    } else compScore++;
-    return "You lose!";
+  } else compScore++;
+  return "You lose!";
 }
 
 function playMatch() {
@@ -47,7 +47,9 @@ function playMatch() {
   compScore = 0;
   for (let i = 0; i < 5; i++) {
     playRound();
-    console.log(`Player score is ${playerScore}. Computer score is ${compScore}.`);
+    console.log(
+      `Player score is ${playerScore}. Computer score is ${compScore}.`
+    );
   }
   if (playerScore > compScore) {
     return "You win! Congratulations!";
