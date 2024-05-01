@@ -5,22 +5,10 @@ function getCompChoice() {
   return rand;
 }
 
-function getPlayerChoice() {
-  let userInput = window.prompt("Enter a choice (rock, paper, scissors):");
-  if (list.includes(userInput.toLowerCase())) {
-    return userInput;
-  } else {
-    console.log("Please enter a valid option.");
-    return getPlayerChoice();
-  }
-}
-
 let playerScore = 0;
 let compScore = 0;
-
-function playRound() {
+function playRound(playerResult) {
   let compResult = getCompChoice();
-  let playerResult = getPlayerChoice();
   console.log(`Player: ${playerResult}. Computer: ${compResult}.`);
   if (playerResult === compResult) {
     playerScore++;
@@ -40,7 +28,28 @@ function playRound() {
   return "You lose!";
   }
 }
+console.log(`Player: ${playerScore}. Computer: ${compScore}.`)
 
+let rockGame = document.querySelector("#rock");
+let paperGame = document.querySelector("#paper");
+let scissorsGame = document.querySelector("#scissors");
+
+rockGame.addEventListener("click",()=>{playRound("rock")});
+paperGame.addEventListener("click",()=>{playRound("paper")});
+scissorsGame.addEventListener("click",()=>{playRound("scissors")});
+
+/* run player choice as an alert window
+function getPlayerChoice() {
+  let userInput = window.prompt("Enter a choice (rock, paper, scissors):");
+  if (list.includes(userInput.toLowerCase())) {
+    return userInput;
+  } else {
+    console.log("Please enter a valid option.");
+    return getPlayerChoice();
+  }
+}*/
+
+/* Play 5 rounds in a row with score tracking.
 function playMatch() {
   playerScore = 0;
   compScore = 0;
@@ -57,3 +66,4 @@ function playMatch() {
   } else playerScore === compScore;
   return "Tie!";
 }
+*/
