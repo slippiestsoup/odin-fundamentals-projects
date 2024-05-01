@@ -7,36 +7,46 @@ function getCompChoice() {
 
 let playerScore = 0;
 let compScore = 0;
+
 function playRound(playerResult) {
   let compResult = getCompChoice();
   console.log(`Player: ${playerResult}. Computer: ${compResult}.`);
   if (playerResult === compResult) {
     playerScore++;
     compScore++;
-    return "Tie!";
+    console.log(`Player: ${playerScore}. Computer: ${compScore}.`);
+    return;
   } else if (playerResult === "scissors" && compResult === "paper") {
     playerScore++;
-    return "You win!";
+    console.log(`Player: ${playerScore}. Computer: ${compScore}.`);
+    return;
   } else if (playerResult === "paper" && compResult === "rock") {
     playerScore++;
-    return "You win!";
+    console.log(`Player: ${playerScore}. Computer: ${compScore}.`);
+    return;
   } else if (playerResult === "rock" && compResult === "scissors") {
     playerScore++;
-    return "You win!";
-  } else {
-  compScore++;
-  return "You lose!";
-  }
+    console.log(`Player: ${playerScore}. Computer: ${compScore}.`);
+    return;
+  } else
+    compScore++;
+    console.log(`Player: ${playerScore}. Computer: ${compScore}.`);
+    return;
 }
-console.log(`Player: ${playerScore}. Computer: ${compScore}.`)
 
 let rockGame = document.querySelector("#rock");
 let paperGame = document.querySelector("#paper");
 let scissorsGame = document.querySelector("#scissors");
 
-rockGame.addEventListener("click",()=>{playRound("rock")});
-paperGame.addEventListener("click",()=>{playRound("paper")});
-scissorsGame.addEventListener("click",()=>{playRound("scissors")});
+rockGame.addEventListener("click", () => {
+  playRound("rock");
+});
+paperGame.addEventListener("click", () => {
+  playRound("paper");
+});
+scissorsGame.addEventListener("click", () => {
+  playRound("scissors");
+});
 
 /* run player choice as an alert window
 function getPlayerChoice() {
