@@ -1,9 +1,13 @@
 const choices = document.querySelector("#choices");
-const scores = document.querySelector("#scores");
 const choicePara = document.querySelector("#choicePara");
-const scorePara = document.querySelector("#scorePara");
 choices.appendChild(choicePara);
+const scores = document.querySelector("#scores");
+const scorePara = document.querySelector("#scorePara");
 scores.appendChild(scorePara);
+const finalText = document.querySelector("#finalText");
+const finalWin = document.querySelector("#finalWin");
+finalText.appendChild(finalWin);
+
 
 const list = ["rock", "paper", "scissors"];
 
@@ -36,10 +40,17 @@ function playRound(playerResult) {
     playerScore++;
   } else if (playerResult === "rock" && compResult === "scissors") {
     playerScore++;
-  } else
-    compScore++;
+  } else compScore++;
   updateChoice(playerResult, compResult);
   updateScore(playerScore, compScore);
+  if (playerScore != 5 && compScore != 5) {
+    return finalWin.textContent = "";
+  } else if (playerScore === 5 && playerScore === compScore) {
+    return finalWin.textContent = "Tie!", playerScore = 0, compScore = 0;
+  } else if (playerScore === 5 && playerScore > compScore) {
+    return finalWin.textContent = "You Win! Congratulations!", playerScore = 0, compScore = 0;
+  } else (compScore === 5 && compScore > playerScore);
+  return finalWin.textContent = "You lose! Try again!", playerScore = 0, compScore = 0;
 }
 
 let rockGame = document.querySelector("#rock");
@@ -55,22 +66,3 @@ paperGame.addEventListener("click", () => {
 scissorsGame.addEventListener("click", () => {
   playRound("scissors");
 });
-
-/* Play 5 rounds in a row with score tracking.
-function playMatch() {
-  playerScore = 0;
-  compScore = 0;
-  for (let i = 0; i < 5; i++) {
-    playRound();
-    console.log(
-      `Player score is ${playerScore}. Computer score is ${compScore}.`
-    );
-  }
-  if (playerScore > compScore) {
-    return "You win! Congratulations!";
-  } else if (playerScore < compScore) {
-    return "The computer wins! Better luck next time!";
-  } else playerScore === compScore;
-  return "Tie!";
-}
-*/
