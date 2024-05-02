@@ -8,7 +8,6 @@ const finalText = document.querySelector("#finalText");
 const finalWin = document.querySelector("#finalWin");
 finalText.appendChild(finalWin);
 
-
 const list = ["rock", "paper", "scissors"];
 
 function getCompChoice() {
@@ -20,12 +19,12 @@ let playerScore = 0;
 let compScore = 0;
 
 function updateChoice(playerResult, compResult) {
-  choicePara.textContent = ""
+  choicePara.textContent = "";
   choicePara.textContent = `Player: ${playerResult}. Computer: ${compResult}.`;
-};
+}
 
 function updateScore(playerScore, compScore) {
-  scorePara.textContent = ""
+  scorePara.textContent = "";
   scorePara.textContent = `Player: ${playerScore}. Computer: ${compScore}.`;
 }
 
@@ -44,13 +43,21 @@ function playRound(playerResult) {
   updateChoice(playerResult, compResult);
   updateScore(playerScore, compScore);
   if (playerScore != 5 && compScore != 5) {
-    return finalWin.textContent = "";
+    return (finalWin.textContent = "");
   } else if (playerScore === 5 && playerScore === compScore) {
-    return finalWin.textContent = "Tie!", playerScore = 0, compScore = 0;
+    return (finalWin.textContent = "Tie!"), (playerScore = 0), (compScore = 0);
   } else if (playerScore === 5 && playerScore > compScore) {
-    return finalWin.textContent = "You Win! Congratulations!", playerScore = 0, compScore = 0;
-  } else (compScore === 5 && compScore > playerScore);
-  return finalWin.textContent = "You lose! Try again!", playerScore = 0, compScore = 0;
+    return (
+      (finalWin.textContent = "You Win! Congratulations!"),
+      (playerScore = 0),
+      (compScore = 0)
+    );
+  } else compScore === 5 && compScore > playerScore;
+  return (
+    (finalWin.textContent = "You lose! Try again!"),
+    (playerScore = 0),
+    (compScore = 0)
+  );
 }
 
 let rockGame = document.querySelector("#rock");
