@@ -1,8 +1,8 @@
 const container = document.querySelector(".container");
-const cells = document.querySelector(".cells")
+const button = document.querySelector("#button");
 
-function createGrid() {
-  for (let i = 0; i < 16; i++) {
+function createGrid(input) {
+  for (let i = 0; i < input; i++) {
     const eleCol = document.createElement("div");
     container.appendChild(eleCol);
     eleCol.setAttribute(
@@ -10,7 +10,7 @@ function createGrid() {
       "border: 0.25px solid black; display: flex; flex-direction: column; gap: 1px; align-content: stretch; flex: 1;"
     );
 
-    for (let j = 0; j < 16; j++) {
+    for (let j = 0; j < input; j++) {
       const eleRow = document.createElement("div");
       eleCol.appendChild(eleRow);
       eleRow.classList.add("cells");
@@ -22,4 +22,11 @@ function createGrid() {
   }
 }
 
-createGrid();
+function submitMe() {
+  let input = document.getElementById("inputGrid").value;
+  createGrid(input);
+}
+
+button.addEventListener("click", () => {
+    submitMe();
+  });
