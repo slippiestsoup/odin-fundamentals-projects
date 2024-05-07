@@ -2,6 +2,7 @@ const container = document.querySelector(".container");
 const button = document.querySelector("#button");
 
 function createGrid(input) {
+  container.textContent = '';
   for (let i = 0; i < input; i++) {
     const eleCol = document.createElement("div");
     container.appendChild(eleCol);
